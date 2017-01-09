@@ -1,0 +1,10 @@
+
+FILE: ...egorycode/app/code/community/Okaeli/CategoryCode/Helper/Data.php
+----------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+----------------------------------------------------------------------
+ 26 | WARNING | Empty CLASS statement detected
+----------------------------------------------------------------------
+
+Time: 119ms; Memory: 5.25Mb
+

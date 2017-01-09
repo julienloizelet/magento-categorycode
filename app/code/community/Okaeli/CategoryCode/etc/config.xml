@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Okaeli_CategoryCode  Extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the GNU GENERAL PUBLIC LICENSE Version 3
+ * that is bundled with this package in the file LICENSE
+ *
+ * @category Okaeli
+ * @package Okaeli_CategoryCode
+ * @copyright  Copyright (c)  2017 Julien Loizelet 
+ * @author     Julien Loizelet <julienloizelet@okaeli.com>
+ * @license    GNU GENERAL PUBLIC LICENSE Version 3
+ * 
+ */
+ 
+ /**
+ *
+ * @category Okaeli
+ * @package  Okaeli_CategoryCode
+ * @module   CategoryCode
+ * @author   Julien Loizelet <julienloizelet@okaeli.com>
+ *
+ */
+ -->
+<config>
+    <modules>
+        <Okaeli_CategoryCode>
+            <version>0.0.1</version>
+        </Okaeli_CategoryCode>
+    </modules>
+    <global>
+        <models>
+            <okaeli_categorycode>
+                <class>Okaeli_CategoryCode_Model</class>
+            </okaeli_categorycode>
+        </models>
+        <helpers>
+            <okaeli_categorycode>
+                <class>Okaeli_CategoryCode_Helper</class>
+            </okaeli_categorycode>
+        </helpers>
+        <resources>
+            <okaeli_categorycode_setup>
+                <setup>
+                    <module>Okaeli_CategoryCode</module>
+                    <class>Mage_Catalog_Model_Resource_Eav_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </okaeli_categorycode_setup>
+        </resources>
+    </global>
+    <frontend>
+        <events>
+            <controller_action_layout_load_before>
+                <observers>
+                    <okaeli_categorycode_manage_handles>
+                        <class>okaeli_categorycode/observer</class>
+                        <method>manageHandles</method>
+                    </okaeli_categorycode_manage_handles>
+                </observers>
+            </controller_action_layout_load_before>
+        </events>
+        <category>
+            <collection>
+                <attributes>
+                    <okaeli_category_code />
+                </attributes>
+            </collection>
+        </category>
+    </frontend>
+    <adminhtml>
+        <events>
+            <adminhtml_catalog_category_edit_prepare_form>
+                <observers>
+                    <okaeli_categorycode_catalog_category_edit_attributes>
+                        <class>okaeli_categorycode/observer</class>
+                        <method>disableCategoryCodeAdminEdit</method>
+                    </okaeli_categorycode_catalog_category_edit_attributes>
+                </observers>
+            </adminhtml_catalog_category_edit_prepare_form>
+        </events>
+    </adminhtml>
+</config>
